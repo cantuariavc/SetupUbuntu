@@ -12,12 +12,12 @@ sudo bash -c "sed 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=1/g' /etc/default/grub > /etc/
 sudo update-grub
 
 # Turns off unity visual effects
-if [ ! -f "$HOME/.xprofile" ]; then
-    echo 'export UNITY_LOW_GFX_MODE=1' > "$HOME/.xprofile"
+if [ ! -f $HOME/.xprofile ]; then
+    echo 'export UNITY_LOW_GFX_MODE=1' > $HOME/.xprofile
 else
-    grep 'export UNITY_LOW_GFX_MODE=0' "$HOME/.xprofile" > ulgfx
+    grep 'export UNITY_LOW_GFX_MODE=0' $HOME/.xprofile > ulgfx
     if [ -s ulgfx ]; then
-        sed s/export\ UNITY_LOW_GFX_MODE=0/export\ UNITY_LOW_GFX_MODE=1/g "$HOME/.xprofile" > "$HOME/.xprofile1" && mv "$HOME/.xprofile1" "$HOME/.xprofile"
+        sed s/export\ UNITY_LOW_GFX_MODE=0/export\ UNITY_LOW_GFX_MODE=1/g $HOME/.xprofile > $HOME/.xprofile1 && mv $HOME/.xprofile1 $HOME/.xprofile
     fi
     rm -rf ulgfx
 fi
@@ -46,17 +46,17 @@ sudo bash -c "echo -e '[SeatDefaults]\nallow-guest=false' > /etc/lightdm/lightdm
 sudo apt install unity-tweak-tool -y
 
 # Place theme
-mkdir ~/.themes
-mv ./Y* ~/.themes
+mkdir $HOME/.themes
+mv ./Y* $HOME/.themes
 
 # Install and Customize nano
 sudo apt install nano -y
-echo -e 'set autoindent\nset multibuffer\nset nohelp\nset nonewlines\nset tabsize 8\nbind ^S savefile main' > ~/.nanorc
+echo -e 'set autoindent\nset multibuffer\nset nohelp\nset nonewlines\nset tabsize 8\nbind ^S savefile main' > $HOME/.nanorc
 
 # Install and customize tmux
 sudo apt install tmux -y
-echo -e '# set window split\nbind-key v split-window -h\nbind-key b split-window\n' > ~/.tmux.conf
-echo -e '# C-b is not acceptable -- Vim uses it\nset-option -g prefix C-a\nbind-key C-a last-window\n' >> ~/.tmux.conf
-echo -e '# Start numbering at 1\nset -g base-index 1\n' >> ~/.tmux.conf
-echo -e '# hjkl pane traversal\nbind h select-pane -L\nbind j select-pane -D\nbind k select-pane -U\nbind l select-pane -R\n' >> ~/.tmux.conf
-tmux source-file ~/.tmux.conf
+echo -e '# set window split\nbind-key v split-window -h\nbind-key b split-window\n' > $HOME/.tmux.conf
+echo -e '# C-b is not acceptable -- Vim uses it\nset-option -g prefix C-a\nbind-key C-a last-window\n' >> $HOME/.tmux.conf
+echo -e '# Start numbering at 1\nset -g base-index 1\n' >> $HOME/.tmux.conf
+echo -e '# hjkl pane traversal\nbind h select-pane -L\nbind j select-pane -D\nbind k select-pane -U\nbind l select-pane -R\n' >> $HOME/.tmux.conf
+tmux source-file $HOME/.tmux.conf
