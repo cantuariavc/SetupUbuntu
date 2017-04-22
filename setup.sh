@@ -12,7 +12,15 @@ sudo bash -c "sed 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=1/g' /etc/default/grub > /etc/
 sudo update-grub
 
 # Turns off unity visual effects
-echo 'export UNITY_LOW_GFX_MODE=1' > ~/.xprofile
+if [ ! -f "$HOME/.xprofile" ]; then
+    echo 'export UNITY_LOW_GFX_MODE=1' > "$HOME/.xprofile"
+else
+    grep 'export UNITY_LOW_GFX_MODE=0' "$HOME/.xprofile" > ulgfx
+    if [ -s ulgfx ]; then
+        sed s/export\ UNITY_LOW_GFX_MODE=0/export\ UNITY_LOW_GFX_MODE=1/g "$HOME/.xprofile" > "$HOME/.xprofile1" && mv "$HOME/.xprofile1" "$HOME/.xprofile"
+    fi
+    rm -rf ulgfx
+fi
 
 # Reduces the use of SWAP
 sudo bash -c "echo -e '#\n# Reduces the use of SWAP\nvm.swappiness=10' >> /etc/sysctl.conf"
