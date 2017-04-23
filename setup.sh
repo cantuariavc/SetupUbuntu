@@ -39,8 +39,12 @@ sudo apt install tlp tlp-rwd
 sudo tlp start
 
 # Withdraw guest
-sudo mkdir /etc/lightdm/lightdm.conf.d
-sudo bash -c "echo -e '[SeatDefaults]\nallow-guest=false' > /etc/lightdm/lightdm.conf.d/no-guest.conf"
+if [ -d /etc/lightdm/lightdm.conf.d ]; then
+	sudo bash -c "echo -e '[SeatDefaults]\nallow-guest=false' > /etc/lightdm/lightdm.conf.d/no-guest.conf"
+else
+	mkdir /etc/lightdm/lightdm.conf.d
+	sudo bash -c "echo -e '[SeatDefaults]\nallow-guest=false' > /etc/lightdm/lightdm.conf.d/no-guest.conf"
+fi
 
 # Install Unity-Tweak-Tool
 sudo apt install unity-tweak-tool -y
