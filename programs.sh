@@ -1,5 +1,15 @@
 #! /bin/bash
 
+# Install Preload
+sudo apt install preload -y
+
+# Install TLP
+sudo apt remove laptop-mode-tools -y
+sudo add-apt-repository ppa:linrunner/tlp -y
+sudo apt update
+sudo apt install tlp tlp-rwd
+sudo tlp start
+
 # Install Unity-Tweak-Tool
 sudo apt install unity-tweak-tool -y
 

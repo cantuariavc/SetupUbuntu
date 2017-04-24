@@ -36,16 +36,6 @@ sudo bash -c "echo -e '#\n# Reduces the use of SWAP\nvm.swappiness=10' >> /etc/s
 # Improves cache management
 sudo bash -c "echo -e '# Improves cache management\nvm.vfs_cache_pressure=50' >> /etc/sysctl.conf"
 
-# Install Preload
-sudo apt install preload -y
-
-# Install TLP
-sudo apt remove laptop-mode-tools -y
-sudo add-apt-repository ppa:linrunner/tlp -y
-sudo apt update
-sudo apt install tlp tlp-rwd
-sudo tlp start
-
 # Withdraw guest
 if [ -d /etc/lightdm/lightdm.conf.d ]; then
 	sudo bash -c "echo -e '[SeatDefaults]\nallow-guest=false' > /etc/lightdm/lightdm.conf.d/no-guest.conf"
