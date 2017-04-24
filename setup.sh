@@ -22,6 +22,11 @@ else
     rm -rf ulgfx
 fi
 
+# Set Desktop Wallpaper
+if [ -f ./system/wallpaper/* ]; then
+	gsettings set org.gnome.desktop.background picture-uri file:///./system/wallpaper/*
+fi
+
 # Reduces the use of SWAP
 sudo bash -c "echo -e '#\n# Reduces the use of SWAP\nvm.swappiness=10' >> /etc/sysctl.conf"
 
