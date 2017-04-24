@@ -30,6 +30,12 @@ if [ -f ./system/wallpaper/* ]; then
 	gsettings set org.gnome.desktop.background picture-uri file:///./system/wallpaper/*
 fi
 
+# Place theme
+mkdir $HOME/.themes
+if [ -d ./system/theme ]; then
+	cp ./system/theme/* $HOME/.themes
+fi
+
 # Reduces the use of SWAP
 sudo bash -c "echo -e '#\n# Reduces the use of SWAP\nvm.swappiness=10' >> /etc/sysctl.conf"
 

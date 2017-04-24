@@ -13,12 +13,6 @@ sudo tlp start
 # Install Unity-Tweak-Tool
 sudo apt install unity-tweak-tool -y
 
-# Place theme
-mkdir $HOME/.themes
-if [ -d ./system/theme ]; then
-	cp ./system/theme/* $HOME/.themes
-fi
-
 # Install and setup nano
 sudo apt install nano -y
 if [ -f ./configfiles/nanorc ]; then
