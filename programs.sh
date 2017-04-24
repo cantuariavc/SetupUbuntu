@@ -13,6 +13,12 @@ sudo tlp start
 # Install Unity-Tweak-Tool
 sudo apt install unity-tweak-tool -y
 
+# Install and setup git
+sudo apt install git -y
+if [ -f ./configfiles/gitconfig ]; then
+	cp ./gitconfig $HOME/.gitconfig
+fi
+
 # Install and setup nano
 sudo apt install nano -y
 if [ -f ./configfiles/nanorc ]; then
@@ -28,12 +34,6 @@ sudo apt install tmux -y
 if [ -f ./configfiles/tmux.conf ]; then
 	cp ./configfiles/tmux.conf $HOME/.tmux.conf
 	tmux source-file $HOME/.tmux.conf
-fi
-
-# Install and setup git
-sudo apt install git -y
-if [ -f ./configfiles/gitconfig ]; then
-	cp ./gitconfig $HOME/.gitconfig
 fi
 
 # Install xclip
