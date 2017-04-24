@@ -1,0 +1,6 @@
+set autoindent
+set multibuffer
+set nohelp
+set nonewlines
+set tabsize 8
+bind ^S savefile main
