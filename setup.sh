@@ -7,6 +7,9 @@ sudo dpkg --configure -a
 sudo apt install -f
 sudo apt autoremove -y
 
+# Force Color Prompt
+sed 's/#force_color_prompt=yes/force_color_prompt=yes/g' $HOME/.bashrc > $HOME/.bashrc1 && mv $HOME/.bashrc1 $HOME/.bashrc
+
 # Decrease grud's time
 sudo bash -c "sed 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=1/g' /etc/default/grub > /etc/default/grub1 && mv /etc/default/grub1 /etc/default/grub"
 sudo update-grub
