@@ -53,3 +53,6 @@ else
 	mkdir /etc/lightdm/lightdm.conf.d
 	sudo bash -c "echo -e '[SeatDefaults]\nallow-guest=false' > /etc/lightdm/lightdm.conf.d/no-guest.conf"
 fi
+
+# Install Programs
+./programs.sh
