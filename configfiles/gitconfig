@@ -3,3 +3,5 @@
 	name = Vinicius Cantuaria
 [push]
 	default = simple
+[core]
+	editor = vim
