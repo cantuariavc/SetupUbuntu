@@ -27,7 +27,9 @@ fi
 
 # Install and setup vim
 sudo apt install vim -y
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ets-labs/python-vimrc/master/setup.sh)"
+git clone https://github.com/cantuariavc/vim.git $HOME
+$HOME/vim/.vim/setup.sh
+rm -rf $HOME/vim
 
 # Install and setup tmux
 sudo apt install tmux -y
