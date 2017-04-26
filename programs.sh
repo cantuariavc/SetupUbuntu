@@ -53,3 +53,8 @@ sudo apt install google-chrome -y
 
 # Install steam
 sudo apt install steam -y
+
+# Install oracle java jdk 9
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt update
+sudo apt install oracle-java9-installer
