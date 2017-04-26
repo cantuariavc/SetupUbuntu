@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 # Update system
 sudo apt update
@@ -11,7 +11,7 @@ sudo apt autoremove -y
 sed 's/#force_color_prompt=yes/force_color_prompt=yes/g' $HOME/.bashrc > $HOME/.bashrc1 && mv $HOME/.bashrc1 $HOME/.bashrc
 
 # Decrease grud's time
-sudo bash -c "sed 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=1/g' /etc/default/grub > /etc/default/grub1 && mv /etc/default/grub1 /etc/default/grub"
+sudo sh -c "sed 's/GRUB_TIMEOUT=10/GRUB_TIMEOUT=1/g' /etc/default/grub > /etc/default/grub1 && mv /etc/default/grub1 /etc/default/grub"
 sudo update-grub
 
 # Turns off unity visual effects
@@ -37,17 +37,17 @@ if [ -d ./system/theme ]; then
 fi
 
 # Reduces the use of SWAP
-sudo bash -c "echo -e '#\n# Reduces the use of SWAP\nvm.swappiness=10' >> /etc/sysctl.conf"
+sudo sh -c "echo -e '#\n# Reduces the use of SWAP\nvm.swappiness=10' >> /etc/sysctl.conf"
 
 # Improves cache management
-sudo bash -c "echo -e '# Improves cache management\nvm.vfs_cache_pressure=50' >> /etc/sysctl.conf"
+sudo sh -c "echo -e '# Improves cache management\nvm.vfs_cache_pressure=50' >> /etc/sysctl.conf"
 
 # Withdraw guest
 if [ -d /etc/lightdm/lightdm.conf.d ]; then
-	sudo bash -c "echo -e '[SeatDefaults]\nallow-guest=false' > /etc/lightdm/lightdm.conf.d/no-guest.conf"
+	sudo sh -c "echo -e '[SeatDefaults]\nallow-guest=false' > /etc/lightdm/lightdm.conf.d/no-guest.conf"
 else
 	mkdir /etc/lightdm/lightdm.conf.d
-	sudo bash -c "echo -e '[SeatDefaults]\nallow-guest=false' > /etc/lightdm/lightdm.conf.d/no-guest.conf"
+	sudo sh -c "echo -e '[SeatDefaults]\nallow-guest=false' > /etc/lightdm/lightdm.conf.d/no-guest.conf"
 fi
 
 # Install Programs
