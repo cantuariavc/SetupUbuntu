@@ -1,11 +1,7 @@
 #! /bin/sh
 
 # Update system
-sudo apt update
-sudo apt upgrade -y
-sudo dpkg --configure -a
-sudo apt install -f
-sudo apt autoremove -y
+./update.sh
 
 # Force Color Prompt
 sed 's/#force_color_prompt=yes/force_color_prompt=yes/g' $HOME/.bashrc > $HOME/.bashrc1 && mv $HOME/.bashrc1 $HOME/.bashrc
